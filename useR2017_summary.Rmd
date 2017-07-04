@@ -1,0 +1,62 @@
+---
+title: ''
+output:
+  html_document: default
+  html_notebook: default
+---
+```{r, eval = F, echo = F}
+# devtools::install_github("hadley/emo")
+```
+
+
+
+<img src="images/logo/user2017.jpg" align = "left" width = "60%">
+
+<img src="images/logo/r_group_logo.jpg" align = "center" width = "20%">
+
+<br>
+
+Liebe R-Community,
+
+Die diesjährige `useR!` Conference findet in Brüssel vom 03.-07.07. statt. Rebecca, Fabio und Simon fassen hier ihre Konferenznotizen zusammen. Eine Übersicht aller angebotenen Workshops kann man [hier](https://user2017.brussels/schedule) finden. 
+
+
+
+
+# Day 1 Wild Gallery (9:00-18:00h)
+
+## Sports Analytics with R: How R is changing the sports bet world
+by [*Stephanie Kovalchik*](s.a.kovalchik@gmail.com) (Australische Firma)
+
+Der Vortrag umfasste eine Vielzahl von Themen, die von A-Z mit der Modellierung von Sportwetten zu tun haben. Einzig eine Wette wurde nicht platziert `r emo::ji("geek")`. Zu erst wurden verschiedene Datenquellen besprochen:
+
+1. Box Scores (single sporting events)
+2. Performance Metrices (repeated measures timeseries)
+3. Tracking Data *spatio-temporal* data (geo position, touch downs etc.)
+4. Wearables (sensor-supported measuring)
+
+Btw [Deutsche Bundesliga Daten (1+2)](http://www.football-data.co.uk/germanym.php) von Saison 1993/1994 bis 2016/2017.
+
+
+
+------
+
+## Title
+bla bla bla ...
+
+------
+
+
+# Day 2 Wild Gallery (9:00-18:00h)
+
+
+
+
+
+
+
+
+
+
+
+
