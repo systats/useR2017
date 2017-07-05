@@ -110,11 +110,31 @@ put in if fals "testing block"
 test_that
 
 
-
-
-
-
 # Talk: When is an Outlier and Outlier? The O3 plot  
+*Antony Unwin*  
+
+What to do about outliers?  
+
+- identify as potential outliers
+- deal with outliers  
+- understand outliers  
+- look for additional information on those cases
+- use graphics
+
+**use O3 plot:** 
+
+potential outiers, variabe combination similar parterns, similar outliers, low-d combinations
+> carries out mutiple testing and the test are not independent
+> cells can be shaded to show different levels of outlieingsness (colored by various alpha levels)
+
+- keep in mind: the choice of population to compare outliers to is very important but also the choice of varibales compared to each other. 
+
+
+
+
+
+
+
 
 # Talk: Curve Linear Regression with **clr**  
 
