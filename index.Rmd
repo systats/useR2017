@@ -57,6 +57,62 @@ bla bla bla ...
 http://users.ugent.be/~yrossee...
 
 # Talk: Updates to the Documentation System for R  
+*Andrew Redd, R documentation Task Force*    
+
+- full class system for documentation  
+- can document anything: functions, objects, dataframes,...  
+- formats or input and output support decided
+- stored as a meta obbject similar to class definitions for S4 and reference classes  
+
+**MANY IN-MANY OUT DESIGN SYSTEM**  
+
+All documentation into an object and then create ti XML, static Html, rd 
+
+**CURRENT STATE**  
+
+**parsetools** 
+
+```{r, echo=T, eval=F}
+#install.packages("parsetools")
+libary(parsetools)  
+options(keep.source = T)  
+pd <- get_parse_data(parse(text="x <- rnorm(100)"))
+kable(pd[c(-1,-2)])
+#get_pd_assign_variable....
+```
+
+
+**Documentation**  
+format languages: markdown, yaml
+
+```{r, echo=T, eval=F}
+#install.packages("documentation")
+library(documentation)  
+
+# documentation class
+x <- documentation("Documentation", ...)
+
+#convert to rd
+toRd(x)
+options(keep.source = T)  
+pd <- get_parse_data(parse(text="x <- rnorm(100)"))
+kable(pd[c(-1,-2)])
+#get_pd_assign_variable....
+```
+
+**Text ectraction**  
+tidyverse  
+
+Tests are valid Rcode and should be in a R file, same things for examples
+
+put in if fals "testing block"
+
+test_that
+
+
+
+
+
 
 # Talk: When is an Outlier and Outlier? The O3 plot  
 
