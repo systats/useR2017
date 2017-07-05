@@ -54,7 +54,7 @@ __Packages and Websites__
 __Web scraping__
 
 Wenn Informationen nicht als Datensatz zur Verfügung stehen (was selten der Fall ist für Sportwetten) kommt [web scraping](https://en.wikipedia.org/wiki/Web_scraping) zum Einsatz. 
-```{r}
+```{r, echo = T, eval = F}
 library(rvest)
 library(dplyr)
 
