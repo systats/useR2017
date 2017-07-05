@@ -24,18 +24,53 @@ Die diesjährige `useR!` Conference findet in Brüssel vom 03.-07.07. statt. Reb
 
 
 # Day 1 Wild Gallery (9:00-18:00h)
-
-## Sports Analytics with R: How R is changing the sports bet world
+## Sports Analytics with R
 by [*Stephanie Kovalchik*](s.a.kovalchik@gmail.com) (Australische Firma)
 
-Der Vortrag umfasste eine Vielzahl von Themen, die von A-Z mit der Modellierung von Sportwetten zu tun haben. Einzig eine Wette wurde nicht platziert `r emo::ji("geek")`. Zu erst wurden verschiedene Datenquellen besprochen:
+Der Vortrag umfasste eine Vielzahl von Themen, die von A-Z mit der Modellierung von Sportwetten zu tun haben. Einzig eine Wette wurde nicht platziert `r emo::ji("geek")`. Zu erst wurden verschiedene Arten von Datenquellen besprochen:
 
 1. Box Scores (single sporting events)
 2. Performance Metrices (repeated measures timeseries)
 3. Tracking Data *spatio-temporal* data (geo position, touch downs etc.)
 4. Wearables (sensor-supported measuring)
 
-Btw [Deutsche Bundesliga Daten (1+2)](http://www.football-data.co.uk/germanym.php) von Saison 1993/1994 bis 2016/2017.
+__Packages and Websites__
+
+* General: 
+    + `stattleshipR`
+    + `SportAnalytics`
+    + `odds.converter` (data api)
+* Soccer
+    + [`engsoccerdata`](https://github.com/jalapic/engsoccerdata)
+    + [Deutsche Bundesliga Daten (1+2)](http://www.football-data.co.uk/germanym.php) von Saison 1993/1994 bis 2016/2017.
+* Baseball
+    + `pitchRx`
+    + `Lahman`
+* Tennis
+    + `deuce`: tennis data from different web sources 
+* Cricket
+    + `crickestr!`
+
+__Web scraping__
+
+Wenn Informationen nicht als Datensatz zur Verfügung stehen (was selten der Fall ist für Sportwetten) kommt [web scraping](https://en.wikipedia.org/wiki/Web_scraping) zum Einsatz. 
+```{r}
+library(rvest)
+library(dplyr)
+
+# anderes Beispiel
+url <- "https://de.wikipedia.org/wiki/Deutscher_Bundestag"
+webpage <- xml2::read_html(url)
+
+dt <- webpage %>% 
+  html_node(xpath = '//td | //th') %>% 
+  html_table(header = T, fill = TRUE)
+
+dt <- webpage %>% 
+  html_nodes(xpath = '//*[(@id = "divs_standings_E")]') %>% 
+  html_table(header = T)
+```
+
 
 
 
