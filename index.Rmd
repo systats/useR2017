@@ -41,8 +41,23 @@ Btw [Deutsche Bundesliga Daten (1+2)](http://www.football-data.co.uk/germanym.ph
 
 ------
 
-## Title
-bla bla bla ...
+## Data Carpentry: Open and Reproducible Research with R
+
+The goal of this tutorial is to teach participants the skills and perspectives needed to conduct open research with R, including literate programming and best practices in sharing and publishing code and data. We will focus on how to make the work navigable, interpretable, and repeatable by others. This tutorial is modified from the Data Carpentry "Reproducible Research with R" workshop, and we will focus on an exemplar project to model the workflow of going from code and data to a published, archived product.
+
+[Data Carpentry Github](https://fmichonneau.github.io/2017-useR-tutorial/)
+
+## SOLVING ITERATION PROBLEMS WITH PURRR
+
+
+[PURRR](https://github.com/cwickham/purrr-tutorial)
+
+## Introduction to Natural Language Processing with R
+
+[NLP Introduction workshop](https://github.com/statsmaths/user2017_nlp)
+
+[cleanNLP package](https://github.com/statsmaths/cleanNLP)
+
 
 ------
 
