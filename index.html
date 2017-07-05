@@ -126,10 +126,10 @@ $(document).ready(function () {
 <p>Die diesjährige <code>useR!</code> Conference findet in Brüssel vom 03.-07.07. statt. Rebecca, Fabio und Simon fassen hier ihre Konferenznotizen zusammen. Eine Übersicht aller angebotenen Workshops kann man <a href="https://user2017.brussels/schedule">hier</a> finden.</p>
 <div id="day-1-wild-gallery-900-1800h" class="section level1">
 <h1>Day 1 Wild Gallery (9:00-18:00h)</h1>
-<div id="sports-analytics-with-r" class="section level2">
-<h2>Sports Analytics with R</h2>
+<div id="sports-analytics-with-r" class="section level3">
+<h3>Sports Analytics with R</h3>
 <p>by <a href="s.a.kovalchik@gmail.com"><em>Stephanie Kovalchik</em></a> (Australische Firma)</p>
-<p>Der Vortrag umfasste eine Vielzahl von Themen, die von A-Z mit der Modellierung von Sportwetten zu tun haben. Einzig eine Wette wurde nicht platziert 👓. Zu erst wurden verschiedene Arten von Datenquellen besprochen:</p>
+<p>Der Vortrag umfasste eine Vielzahl von Themen, die von A-Z mit der Modellierung von Sportwetten zu tun haben. Einzig eine Wette wurde nicht platziert 🤓. Zu erst wurden verschiedene Arten von Datenquellen besprochen:</p>
 <ol style="list-style-type: decimal">
 <li>Box Scores (single sporting events)</li>
 <li>Performance Metrices (repeated measures timeseries)</li>
@@ -168,17 +168,38 @@ $(document).ready(function () {
 <pre class="r"><code>library(rvest)
 library(dplyr)
 
-# anderes Beispiel
-url &lt;- &quot;https://de.wikipedia.org/wiki/Deutscher_Bundestag&quot;
-webpage &lt;- xml2::read_html(url)
+url &lt;- &quot;http://www.basketball-reference.com/boxscores/&quot;
+webpage &lt;- read_html(url)
 
 dt &lt;- webpage %&gt;% 
-  html_node(xpath = '//td | //th') %&gt;% 
-  html_table(header = T, fill = TRUE)
+  html_nodes(css = &quot;table&quot;) %&gt;% 
+  html_table()
 
 dt &lt;- webpage %&gt;% 
   html_nodes(xpath = '//*[(@id = &quot;divs_standings_E&quot;)]') %&gt;% 
   html_table(header = T)</code></pre>
+<p>Des Weiteren wurde die Wichtigkeit von Data Checking unterstrichen.</p>
+<pre class="r"><code>library(gtools)
+
+for(name in names(dt)) {
+  print(name)
+  print(sort(unique(dt[, name])))
+  ask()
+}</code></pre>
+<p>Als nächstes wurde der einfache Umgang mit Dates gezeigt.</p>
+<ul>
+<li><code>dmy</code></li>
+<li><code>mdy</code></li>
+<li><code>ymd</code></li>
+</ul>
+<p>no delimiters needed.</p>
+<pre class="r"><code>library(lubridate)
+# replace original var and extract year
+data &lt;-data %&gt;% 
+  dplyr::mutate(
+    Date = dmy(Date),
+    Year = year(Date)
+  )</code></pre>
 <hr />
 </div>
 <div id="data-carpentry-open-and-reproducible-research-with-r" class="section level2">

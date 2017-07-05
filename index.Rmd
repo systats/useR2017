@@ -4,6 +4,11 @@ output:
   html_document: default
   html_notebook: default
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
 ```{r, eval = F, echo = F}
 # devtools::install_github("hadley/emo")
 ```
@@ -24,7 +29,7 @@ Die diesjährige `useR!` Conference findet in Brüssel vom 03.-07.07. statt. Reb
 
 
 # Day 1 Wild Gallery (9:00-18:00h)
-## Sports Analytics with R
+### Sports Analytics with R
 by [*Stephanie Kovalchik*](s.a.kovalchik@gmail.com) (Australische Firma)
 
 Der Vortrag umfasste eine Vielzahl von Themen, die von A-Z mit der Modellierung von Sportwetten zu tun haben. Einzig eine Wette wurde nicht platziert `r emo::ji("geek")`. Zu erst wurden verschiedene Arten von Datenquellen besprochen:
@@ -54,22 +59,57 @@ __Packages and Websites__
 __Web scraping__
 
 Wenn Informationen nicht als Datensatz zur Verfügung stehen (was selten der Fall ist für Sportwetten) kommt [web scraping](https://en.wikipedia.org/wiki/Web_scraping) zum Einsatz. 
-```{r, echo = T, eval = F}
+```{r}
 library(rvest)
 library(dplyr)
 
-# anderes Beispiel
-url <- "https://de.wikipedia.org/wiki/Deutscher_Bundestag"
-webpage <- xml2::read_html(url)
+url <- "http://www.basketball-reference.com/boxscores/"
+webpage <- read_html(url)
 
 dt <- webpage %>% 
-  html_node(xpath = '//td | //th') %>% 
-  html_table(header = T, fill = TRUE)
+  html_nodes(css = "table") %>% 
+  html_table()
 
 dt <- webpage %>% 
   html_nodes(xpath = '//*[(@id = "divs_standings_E")]') %>% 
   html_table(header = T)
 ```
+
+Des Weiteren wurde die Wichtigkeit von Data Checking unterstrichen. 
+
+```{r}
+library(gtools)
+
+for(name in names(dt)) {
+  print(name)
+  print(sort(unique(dt[, name])))
+  ask()
+}
+```
+
+Als nächstes wurde der einfache Umgang mit Dates gezeigt.
+
+* `dmy`
+* `mdy`
+* `ymd`
+
+no delimiters needed. 
+
+```{r}
+library(lubridate)
+# replace original var and extract year
+data <-data %>% 
+  dplyr::mutate(
+    Date = dmy(Date),
+    Year = year(Date)
+  )
+```
+
+
+
+
+
+
 
 
 
