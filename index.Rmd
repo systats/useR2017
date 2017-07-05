@@ -136,6 +136,118 @@ The goal of this tutorial is to teach participants the skills and perspectives n
 ### SOLVING ITERATION PROBLEMS WITH PURRR
 
 
+
+# Talk: Updates to the Documentation System for R  
+*Andrew Redd, R documentation Task Force*    
+
+- full class system for documentation  
+- can document anything: functions, objects, dataframes,...  
+- formats or input and output support decided
+- stored as a meta obbject similar to class definitions for S4 and reference classes  
+
+**MANY IN-MANY OUT DESIGN SYSTEM**  
+
+All documentation into an object and then create ti XML, static Html, rd 
+
+**CURRENT STATE**  
+
+**parsetools** 
+
+```{r, echo=T, eval=F}
+#install.packages("parsetools")
+libary(parsetools)  
+options(keep.source = T)  
+pd <- get_parse_data(parse(text="x <- rnorm(100)"))
+kable(pd[c(-1,-2)])
+#get_pd_assign_variable....
+```
+
+
+**Documentation**  
+format languages: markdown, yaml
+
+```{r, echo=T, eval=F}
+#install.packages("documentation")
+library(documentation)  
+
+# documentation class
+x <- documentation("Documentation", ...)
+
+#convert to rd
+toRd(x)
+options(keep.source = T)  
+pd <- get_parse_data(parse(text="x <- rnorm(100)"))
+kable(pd[c(-1,-2)])
+#get_pd_assign_variable....
+```
+
+**Text ectraction**  
+tidyverse  
+
+Tests are valid Rcode and should be in a R file, same things for examples
+
+put in if fals "testing block"
+
+test_that
+
+
+# Talk: When is an Outlier and Outlier? The O3 plot  
+*Antony Unwin*  
+
+What to do about outliers?  
+
+- identify as potential outliers
+- deal with outliers  
+- understand outliers  
+- look for additional information on those cases
+- use graphics
+
+**use O3 plot:** 
+
+potential outiers, variabe combination similar parterns, similar outliers, low-d combinations
+> carries out mutiple testing and the test are not independent
+> cells can be shaded to show different levels of outlieingsness (colored by various alpha levels)
+
+- keep in mind: the choice of population to compare outliers to is very important but also the choice of varibales compared to each other. 
+
+
+# Talk: Curve Linear Regression with **clr**  
+*Amandine Pierrot, Yanning Goude, Yiwei Yao*  
+
+```{r, eval=F, ech=T}
+#install.packages("clr")
+#library(clr)
+
+softplus <- function(x) log(1+exp(x))
+relu <- function(x) sapply(x, function(z) max(0,z))
+
+x <- seq(from=-5, to=5, by=0.1)
+library(ggplot2)
+library(reshape2)
+
+fits <- data.frame(x=x, relu = relu(x))
+long <- melt(fits, id.vars="x")
+ggplot(data=long, aes(x=x, y=value, group=variable, colour=variable))+
+  geom_line(size=1) +
+  theme(plot.title = element_text(size = 26)) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+```
+
+
+# Talk: ICAOD - An R Package to Find Optimal Designs for Nonlinear Models  
+*Ehsan Masoudi*  
+
+Imperialist Competetive Algorithm
+
+R Package: ICAOD  
+
+
+
+# Talk: Maps are data, so why plot data on a map?  
+Rebecca kam zu spät.
+=======
 [PURRR](https://github.com/cwickham/purrr-tutorial)
 
 ### Introduction to Natural Language Processing with R
@@ -165,11 +277,26 @@ plot(model)
 
 
 
+# Talk: Architectural Elements Enabling R for Big Data  
+```{r, echo = T, eval = F}
+#install.packages("ORE")
+library(ORE)
+```
+
+=======
 
 
 ### Talk: Updates to the Documentation System for R  
 
+
+
+
+
+
+# Sponsortalk: Data Camp
+=======
 ### Talk: When is an Outlier and Outlier? The O3 plot  
+
 
 ### Talk: Curve Linear Regression with **clr**  
 
