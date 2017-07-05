@@ -130,15 +130,45 @@ potential outiers, variabe combination similar parterns, similar outliers, low-d
 - keep in mind: the choice of population to compare outliers to is very important but also the choice of varibales compared to each other. 
 
 
-
-
-
-
-
-
 # Talk: Curve Linear Regression with **clr**  
+*Amandine Pierrot, Yanning Goude, Yiwei Yao*  
 
-# Talk: ICAOD - An R Package to Find Optimal Designs for Nonlinear Models 
+```{r, eval=F, ech=T}
+#install.packages("clr")
+library(clr)
+
+softplus <- function(x) log(1+exp(x))
+relu <- function(x) sapply(x, function(z) max(0,z))
+
+x <- seq(from=-5, to=5, by=0.1)
+library(ggplot2)
+library(reshape2)
+
+fits <- data.frame(x=x, relu = relu(x))
+long <- melt(fits, id.vars="x")
+ggplot(data=long, aes(x=x, y=value, group=variable, colour=variable))+
+  geom_line(size=1) +
+  theme(plot.title = element_text(size = 26)) +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+```
+
+
+# Talk: ICAOD - An R Package to Find Optimal Designs for Nonlinear Models  
+*Ehsan Masoudi*  
+
+Imperialist Competetieve Algorithm
+
+R Package: ICAOD  
+
+
+
+
+
+
+
+
 
 # Talk: Maps are data, so why plot data on a map?  
 
