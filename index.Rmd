@@ -137,12 +137,41 @@ The goal of this tutorial is to teach participants the skills and perspectives n
 ------
 
 
-# Day 2 Wild Gallery (9:00-18:00h)
+# Day 2 Wild Gallery (9:00-18:00h)  
+
+# Sponsor Talk: Microsoft  
+
+
+# Keynote Speech: Structural Equation Modeling: models, software and stories
+> Yves Rosseel (Gent University, Belgium)
+http://users.ugent.be/~yrossee...
+
+# Talk: Updates to the Documentation System for R  
+
+# Talk: When is an Outlier and Outlier? The O3 plot  
+
+# Talk: Curve Linear Regression with **clr**  
+
+# Talk: ICAOD - An R Package to Find Optimal Designs for Nonlinear Models 
+
+# Talk: Maps are data, so why plot data on a map?  
+
+# Talk: R-Ladies Global Community  
+
+# Talk: Architectural Elements Enabling R for Big Data  
+
+# Talk: A Tidy Data Model for Natural Language Processing  
+
+# Talk: kmlShape - clustering longitudinal data according to their shapes  
+
+# Talk: Natural Embeddings and NLP with R and Spark  
+
+# Sponsortalk: Data Camp
+
+# Keynote Speech: Teaching data science to new useRs
 
 
 
-Rebecca Litauer: so happy to be here!
-R3lu 4 life, snitches
 
 
 
