@@ -158,7 +158,7 @@ ggplot(data=long, aes(x=x, y=value, group=variable, colour=variable))+
 # Talk: ICAOD - An R Package to Find Optimal Designs for Nonlinear Models  
 *Ehsan Masoudi*  
 
-Imperialist Competetieve Algorithm
+Imperialist Competetive Algorithm
 
 R Package: ICAOD  
 
