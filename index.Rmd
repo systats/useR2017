@@ -147,7 +147,6 @@ The goal of this tutorial is to teach participants the skills and perspectives n
 
 ------
 
-
 # Day 2 Wild Gallery (9:00-18:00h)  
 
 ### Sponsor Talk: Microsoft  
@@ -156,6 +155,17 @@ The goal of this tutorial is to teach participants the skills and perspectives n
 ### Keynote Speech: Structural Equation Modeling: models, software and stories
 > Yves Rosseel (Gent University, Belgium)
 http://users.ugent.be/~yrossee...
+
+### rob-ets
+
+```{r}
+model <- ets(y)
+plot(model)
+```
+
+
+
+
 
 ### Talk: Updates to the Documentation System for R  
 
