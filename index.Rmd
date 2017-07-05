@@ -24,12 +24,11 @@ Liebe R-Community,
 
 Die diesjährige `useR!` Conference findet in Brüssel vom 03.-07.07. statt. Rebecca, Fabio und Simon fassen hier ihre Konferenznotizen zusammen. Eine Übersicht aller angebotenen Workshops kann man [hier](https://user2017.brussels/schedule) finden. 
 
-
-
+<!-- .........Kommentarfunction......... -->
 
 # Day 1 Wild Gallery (9:00-18:00h)
 
-### Sports Analytics with R
+## Sports Analytics with R
 by [*Stephanie Kovalchik*](s.a.kovalchik@gmail.com) (Australische Firma)
 
 __Packages__
@@ -125,50 +124,157 @@ data %>%
 ```
 
 
-### EODA
-
-predictive maintaince
-
-
-
-
-
-------
-
-### Data Carpentry: Open and Reproducible Research with R
+## Data Carpentry: Open and Reproducible Research with R
 
 The goal of this tutorial is to teach participants the skills and perspectives needed to conduct open research with R, including literate programming and best practices in sharing and publishing code and data. We will focus on how to make the work navigable, interpretable, and repeatable by others. This tutorial is modified from the Data Carpentry "Reproducible Research with R" workshop, and we will focus on an exemplar project to model the workflow of going from code and data to a published, archived product.
 
 [Data Carpentry Github](https://fmichonneau.github.io/2017-useR-tutorial/)
 
-### SOLVING ITERATION PROBLEMS WITH PURRR
+## SOLVING ITERATION PROBLEMS WITH PURRR
 
 
 [PURRR](https://github.com/cwickham/purrr-tutorial)
 
-### Introduction to Natural Language Processing with R
+## Introduction to Natural Language Processing with R
 
 [NLP Introduction workshop](https://github.com/statsmaths/user2017_nlp)
 
 [cleanNLP package](https://github.com/statsmaths/cleanNLP)
 
-
-------
+***********
+***********
+<!-- .........Kommentarfunction......... -->
 
 # Day 2 Wild Gallery (9:00-18:00h)  
 
-### Sponsor Talk: Microsoft  
+## 9:15-9:30 Sponsor Talk Microsoft  
 
+is paying for the live video streaming of the key talks. 
 
-### Keynote Speech: Structural Equation Modeling: models, software and stories
+## 9:30-10:30 **Keynote Speech** Structural Equation Modeling: models, software and stories
 > Yves Rosseel (Gent University, Belgium)
 http://users.ugent.be/~yrossee...
 
-### rob-ets
+## 11:00- 11:18 Robets: Forecasting with Robust Exponential Smoothing with Trend and Seasonality
+**Keywords: Time Series, Forecasting, Robust Statistics, Exponential Smoothing**
+
+[Shed](https://user2017.sched.com/event/Axos/robets-forecasting-with-robust-exponential-smoothing-with-trend-and-seasonality?iframe=no&w=&sidebar=yes&bg=no)
+
+[package](https://cran.r-project.org/web/packages/robets/index.html)
 
 ```{r}
 model <- ets(y)
 plot(model)
 ```
 
+
+## 11:00- 11:18 Updates to the Documentation System for R
+*Andrew Redd, R documentation Task Force*    
+
+[Shed](https://user2017.sched.com/event/AxsF/updates-to-the-documentation-system-for-r?iframe=no&w=&sidebar=yes&bg=no)
+
+- full class system for documentation  
+- can document anything: functions, objects, dataframes,...  
+- formats or input and output support decided
+- stored as a meta obbject similar to class definitions for S4 and reference classes  
+
+**MANY IN-MANY OUT DESIGN SYSTEM**  
+
+All documentation into an object and then create ti XML, static Html, rd 
+
+**CURRENT STATE**  
+
+**parsetools**
+
+```{r, eval = F, echo = T}
+install.packages("parsetools")
+libary(parsetools)  
+options(keep.source = T)  
+pd <- get_parse_data(parse(text="x <- rnorm(100)"))
+kable(pd[c(-1,-2)])
+#get_pd_assign_variable....
+```
+
+
+**Documentation**  
+format languages: markdown, yaml
+```{r, eval = F, echo = T}
+install.packages("documentation")
+library(documentation)  
+
+# documentation class
+x <- documentation("Documentation", ...)
+
+#convert to rd
+toRd(x)
+options(keep.source = T)  
+pd <- get_parse_data(parse(text="x <- rnorm(100)"))
+kable(pd[c(-1,-2)])
+#get_pd_assign_variable....
+```
+
+**Text ectraction**  
+tidyverse  
+
+Tests are valid Rcode and should be in a R file, same things for examples
+
+put in if fals "testing block"
+
+test_that
+
+
+## When is an Outlier and Outlier? The O3 plot  
+*Antony Unwin*  
+
+What to do about outliers?  
+
+- identify as potential outliers
+- deal with outliers  
+- understand outliers  
+- look for additional information on those cases
+- use graphics
+
+**use O3 plot:** 
+
+potential outiers, variabe combination similar parterns, similar outliers, low-d combinations
+
+> carries out mutiple testing and the test are not independent
+
+> cells can be shaded to show different levels of outlieingsness (colored by various alpha levels)
+
+- keep in mind: the choice of population to compare outliers to is very important but also the choice of varibales compared to each other. 
+
+## Curve Linear Regression with **clr**  
+*Amandine Pierrot, Yanning Goude, Yiwei Yao*  
+
+## ICAOD - An R Package to Find Optimal Designs for Nonlinear Models  
+*Ehsan Masoudi*  
+
+Imperialist Competetive Algorithm
+R Package: ICAOD  
+
+## Maps are data, so why plot data on a map?  
+Rebecca kam zu spät.
+
+## R-Ladies Global Community  
+
+## Architectural Elements Enabling R for Big Data
+`install.packages("ORE")`
+`library(ORE)`
+
+## A Tidy Data Model for Natural Language Processing  
+
+## kmlShape - clustering longitudinal data according to their shapes  
+
+## Natural Embeddings and NLP with R and Spark  
+
+## SponsorData Camp
+
+## Keynote Speech: Teaching data science to new useRs
+
+***********
+***********
+<!-- .........Kommentarfunction......... -->
+
+# Day 3 Wild Gallery (9:00-18:00h)  
 
