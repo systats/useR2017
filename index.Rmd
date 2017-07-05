@@ -2,8 +2,12 @@
 title: ''
 output:
   html_document: default
-  html_notebook: default
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE)
+```
+
 ```{r, eval = F, echo = F}
 # devtools::install_github("hadley/emo")
 ```
@@ -25,36 +29,113 @@ Die diesjährige `useR!` Conference findet in Brüssel vom 03.-07.07. statt. Reb
 
 # Day 1 Wild Gallery (9:00-18:00h)
 
-## Sports Analytics with R: How R is changing the sports bet world
+### Sports Analytics with R
 by [*Stephanie Kovalchik*](s.a.kovalchik@gmail.com) (Australische Firma)
 
-Der Vortrag umfasste eine Vielzahl von Themen, die von A-Z mit der Modellierung von Sportwetten zu tun haben. Einzig eine Wette wurde nicht platziert `r emo::ji("geek")`. Zu erst wurden verschiedene Datenquellen besprochen:
+__Packages__
+
+[Github repo](https://github.com/skoval/deuce)
+```{r}
+# devtools::install_github("skoval/deuce")
+```
+
+
+Der Vortrag umfasste eine Vielzahl von Themen, die von A-Z mit der Modellierung von Sportwetten zu tun haben. Einzig eine Wette wurde nicht platziert `r emo::ji("geek")`. Zu erst wurden verschiedene Arten von Datenquellen besprochen:
 
 1. Box Scores (single sporting events)
 2. Performance Metrices (repeated measures timeseries)
 3. Tracking Data *spatio-temporal* data (geo position, touch downs etc.)
 4. Wearables (sensor-supported measuring)
 
-Btw [Deutsche Bundesliga Daten (1+2)](http://www.football-data.co.uk/germanym.php) von Saison 1993/1994 bis 2016/2017.
+__Packages and Websites__
 
+* General: 
+    + `stattleshipR`
+    + `SportAnalytics`
+    + `odds.converter` (data api)
+* Soccer
+    + [`engsoccerdata`](https://github.com/jalapic/engsoccerdata)
+    + [Deutsche Bundesliga Daten (1+2)](http://www.football-data.co.uk/germanym.php) von Saison 1993/1994 bis 2016/2017.
+* Baseball
+    + `pitchRx`
+    + `Lahman`
+* Tennis
+    + `deuce`: tennis data from different web sources 
+* Cricket
+    + `crickestr!`
+
+__Web scraping__
+
+Wenn Informationen nicht als Datensatz zur Verfügung stehen (was selten der Fall ist für Sportwetten) kommt [web scraping](https://en.wikipedia.org/wiki/Web_scraping) zum Einsatz. 
+```{r}
+library(rvest)
+library(dplyr)
+
+url <- "http://www.basketball-reference.com/boxscores/"
+webpage <- read_html(url)
+
+dt <- webpage %>% 
+  html_nodes(css = "table") %>% 
+  html_table()
+
+dt <- webpage %>% 
+  html_nodes(xpath = '//*[(@id = "divs_standings_E")]') %>% 
+  html_table(header = T)
+```
+
+Des Weiteren wurde die Wichtigkeit von Data Checking unterstrichen. 
+
+```{r}
+library(gtools)
+
+for(name in names(dt)) {
+  print(name)
+  print(sort(unique(dt[, name])))
+  ask()
+}
+```
+
+Als nächstes wurde der einfache Umgang mit Dates gezeigt.
+
+* `dmy`
+* `mdy`
+* `ymd`
+
+Keine Format parameter oder delimiter nötig.
+
+```{r}
+library(lubridate)
+# replace original var and extract year
+data <-data %>% 
+  dplyr::mutate(
+    Date = dmy(Date),
+    Year = year(Date)
+  )
+```
+
+
+Außerdem wurde gezeigt wie eine Funktion auf eine Reihe von Variablen angewendet werden kann.
+
+```{r}
+data %>% 
+  select(var01:var10) %>% 
+  summarise_all(
+    funs(sum(is.na(.)))
+  )
+```
 
 
 ------
 
-## Title
-bla bla bla ...
+### Data Carpentry: Open and Reproducible Research with R
 
-------
+The goal of this tutorial is to teach participants the skills and perspectives needed to conduct open research with R, including literate programming and best practices in sharing and publishing code and data. We will focus on how to make the work navigable, interpretable, and repeatable by others. This tutorial is modified from the Data Carpentry "Reproducible Research with R" workshop, and we will focus on an exemplar project to model the workflow of going from code and data to a published, archived product.
 
+[Data Carpentry Github](https://fmichonneau.github.io/2017-useR-tutorial/)
 
-# Day 2 Wild Gallery (9:00-18:00h)  
-
-# Sponsor Talk: Microsoft  
+### SOLVING ITERATION PROBLEMS WITH PURRR
 
 
-# Keynote Speech: Structural Equation Modeling: models, software and stories
-> Yves Rosseel (Gent University, Belgium)
-http://users.ugent.be/~yrossee...
 
 # Talk: Updates to the Documentation System for R  
 *Andrew Redd, R documentation Task Force*    
@@ -166,8 +247,33 @@ R Package: ICAOD
 
 # Talk: Maps are data, so why plot data on a map?  
 Rebecca kam zu spät.
+=======
+[PURRR](https://github.com/cwickham/purrr-tutorial)
 
-# Talk: R-Ladies Global Community  
+### Introduction to Natural Language Processing with R
+
+[NLP Introduction workshop](https://github.com/statsmaths/user2017_nlp)
+
+[cleanNLP package](https://github.com/statsmaths/cleanNLP)
+
+
+------
+
+# Day 2 Wild Gallery (9:00-18:00h)  
+
+### Sponsor Talk: Microsoft  
+
+
+### Keynote Speech: Structural Equation Modeling: models, software and stories
+> Yves Rosseel (Gent University, Belgium)
+http://users.ugent.be/~yrossee...
+
+### rob-ets
+
+```{r}
+model <- ets(y)
+plot(model)
+```
 
 
 
@@ -177,28 +283,39 @@ Rebecca kam zu spät.
 library(ORE)
 ```
 
+=======
 
-# Talk: A Tidy Data Model for Natural Language Processing  
 
-# Talk: kmlShape - clustering longitudinal data according to their shapes  
+### Talk: Updates to the Documentation System for R  
 
-# Talk: Natural Embeddings and NLP with R and Spark  
 
 
 
 
 
 # Sponsortalk: Data Camp
-
-# Keynote Speech: Teaching data science to new useRs
-
-
+=======
+### Talk: When is an Outlier and Outlier? The O3 plot  
 
 
+### Talk: Curve Linear Regression with **clr**  
 
+### Talk: ICAOD - An R Package to Find Optimal Designs for Nonlinear Models 
 
+### Talk: Maps are data, so why plot data on a map?  
 
+### Talk: R-Ladies Global Community  
 
+### Talk: Architectural Elements Enabling R for Big Data  
 
+### Talk: A Tidy Data Model for Natural Language Processing  
+
+### Talk: kmlShape - clustering longitudinal data according to their shapes  
+
+### Talk: Natural Embeddings and NLP with R and Spark  
+
+### Sponsortalk: Data Camp
+
+### Keynote Speech: Teaching data science to new useRs
 
 
