@@ -135,7 +135,7 @@ potential outiers, variabe combination similar parterns, similar outliers, low-d
 
 ```{r, eval=F, ech=T}
 #install.packages("clr")
-library(clr)
+#library(clr)
 
 softplus <- function(x) log(1+exp(x))
 relu <- function(x) sapply(x, function(z) max(0,z))
@@ -164,23 +164,29 @@ R Package: ICAOD
 
 
 
-
-
-
-
-
-
 # Talk: Maps are data, so why plot data on a map?  
+Rebecca kam zu spät.
 
 # Talk: R-Ladies Global Community  
 
+
+
 # Talk: Architectural Elements Enabling R for Big Data  
+```{r, echo = T, eval = F}
+#install.packages("ORE")
+library(ORE)
+```
+
 
 # Talk: A Tidy Data Model for Natural Language Processing  
 
 # Talk: kmlShape - clustering longitudinal data according to their shapes  
 
 # Talk: Natural Embeddings and NLP with R and Spark  
+
+
+
+
 
 # Sponsortalk: Data Camp
 
