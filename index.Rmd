@@ -125,6 +125,14 @@ data %>%
 ```
 
 
+### EODA
+
+predictive maintaince
+
+
+
+
+
 ------
 
 ### Data Carpentry: Open and Reproducible Research with R
