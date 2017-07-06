@@ -163,10 +163,12 @@ http://users.ugent.be/~yrossee...
 [package](https://cran.r-project.org/web/packages/robets/index.html)
 
 ```{r}
-model <- ets(y)
+library(robets)
+model <- ...(y)
 plot(model)
 ```
 
+Ist eine robuste Methode gegenüber Ausreißern jeglicher Art und definition. Selbst Missing Values or measurement errors are checked againstand identified. Very nice for univariate time series. 
 
 ## 11:00- 11:18 Updates to the Documentation System for R
 *Andrew Redd, R documentation Task Force*    
@@ -223,8 +225,27 @@ put in if fals "testing block"
 test_that
 
 
-## When is an Outlier and Outlier? The O3 plot  
+## 11:18-11:36 A Benchmark of Open Source Tools for Machine Learning from R
+**Keywords: machine learning, predictive modeling, predictive accuracy, scalability, speed**
+
+[Shed](https://user2017.sched.com/event/Axoz/a-benchmark-of-open-source-tools-for-machine-learning-from-r?iframe=no&w=&sidebar=yes&bg=no)
+
+Simple/limited/incomplete benchmark for scalability, speed and accuracy of machine learning libraries for classification. 
+
+[Github benchm-ml](https://github.com/szilard/benchm-ml)
+
+* Kaggle besondere Accuracy Messung? 
+* GBM
+* LightGBM - faster!
+* Which platform performs best?
+* GBM is beating NN (?)
+* Tensorflow is in R as good as in
+
+
+## 11:18-11:36 When is an Outlier an Outlier? The O3 plot
 *Antony Unwin*  
+
+[Shed](https://user2017.sched.com/event/Axov/when-is-an-outlier-an-outlier-the-o3-plot)
 
 What to do about outliers?  
 
@@ -244,14 +265,40 @@ potential outiers, variabe combination similar parterns, similar outliers, low-d
 
 - keep in mind: the choice of population to compare outliers to is very important but also the choice of varibales compared to each other. 
 
-## Curve Linear Regression with **clr**  
+
+## 11:36-11:45 Sports Betting and R: How R is changing the sports betting world
+
+[Shed](https://user2017.sched.com/event/Axp1/sports-betting-and-r-how-r-is-changing-the-sports-betting-world)
+
+* Pinnacle Buisiness Model
+* Betters are resources
+* only 1,5-2,5% charge
+* live data API
+* updating odds and betting live
+
+I gonna try this things!
+
+
+## 11:36-11:45 Curve Linear Regression with **clr**  
 *Amandine Pierrot, Yanning Goude, Yiwei Yao*  
 
-## ICAOD - An R Package to Find Optimal Designs for Nonlinear Models  
+[Shed](https://user2017.sched.com/event/Axp4/curve-linear-regression-with-clr?iframe=no&w=&sidebar=yes&bg=no)
+
+
+
+
+
+
+## 11:45-ICAOD - An R Package to Find Optimal Designs for Nonlinear Models  
 *Ehsan Masoudi*  
 
-Imperialist Competetive Algorithm
-R Package: ICAOD  
+* Imperialist Competetive Algorithm
+* R Package: ICAOD  
+
+[Shed](https://user2017.sched.com/event/AxpA/icaod-an-r-package-to-find-optimal-designs-for-nonlinear-models-with-imperialist-competitive-algorithm?iframe=no&w=&sidebar=yes&bg=no)
+
+
+
 
 ## Maps are data, so why plot data on a map?  
 Rebecca kam zu spät.
@@ -279,7 +326,14 @@ Rebecca kam zu spät.
 # Day 3 Wild Gallery (9:00-18:00h)  
 
 
+# Rebecca 
 
 
 
-Änderung Test Test
+
+# Fabio 
+
+
+
+
+#  Simon 
